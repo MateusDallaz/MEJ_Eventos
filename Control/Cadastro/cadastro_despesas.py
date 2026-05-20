@@ -60,6 +60,3 @@ def inserir_despesa(conexao):
     cursor.execute(sql, values)
     conexao.commit()
     print("Registro inserido com sucesso!")
-
-conexao = conectar()
-inserir_despesa(conexao) 

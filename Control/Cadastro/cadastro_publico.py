@@ -7,7 +7,7 @@ from connector import conectar
 from listagem_fk import pedir_fk
 
 def inserir_publico(conexao):
-    cabecalho("CADASTRO DE PÚBLICO ALVO")
+    print("\n=== Cadastro de Público Alvo ===")
  
     publico_alvo     = input("  Público alvo (ex: jovens, família, corporativo): ").strip() or None
     ingresso_vendido = input("  Ingressos vendidos: ").strip() or None
@@ -23,6 +23,9 @@ def inserir_publico(conexao):
              faixa_etaria, tipo_ingresso, id_contratante, id_artista)
         VALUES (%s, %s, %s, %s, %s, %s, %s)
     """
-    executar_insert(conexao, sql,
-        (publico_alvo, ingresso_vendido, observacao,
-         faixa_etaria, tipo_ingresso, id_contratante, id_artista))
+    values = (publico_alvo, ingresso_vendido, observacao,
+              faixa_etaria, tipo_ingresso, id_contratante, id_artista)     
+    cursor = conexao.cursor()
+    cursor.execute(sql, values)
+    conexao.commit()
+    print("✔  Público alvo cadastrado com sucesso!")

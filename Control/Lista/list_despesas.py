@@ -4,7 +4,6 @@ import os
 # Sobe um nível (de Lista → Control)
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from menu import menu
 from connector import conectar
 
 def listagem_despesas(conexao):

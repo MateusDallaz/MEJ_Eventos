@@ -1,5 +1,8 @@
 import mysql.connector
 
 from connector import conectar
+from menu import menu
 
-conectar()
+conexao = conectar()
+
+menu(conexao)

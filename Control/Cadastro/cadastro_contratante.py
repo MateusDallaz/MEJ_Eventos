@@ -1,11 +1,9 @@
 import mysql.connector
-from connector import conectar
 import sys
 import os
 # Sobe um nível (de Lista → Control)
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from menu import menu
 from connector import conectar
 
 def inserir_contratante(conexao):
@@ -23,6 +21,3 @@ def inserir_contratante(conexao):
     cursor.execute(sql, values)
     conexao.commit()
     print("Registro inserido com sucesso!")
-
-conexao = conectar()
-inserir_contratante(conexao)  

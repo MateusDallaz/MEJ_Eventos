@@ -7,5 +7,5 @@ def conectar():
         password='',
         database='mej_eventos'
     )
-    print('\nConectado')
+    print('\n=== Conexão estabelecida com sucesso! ===')
     return conexao
