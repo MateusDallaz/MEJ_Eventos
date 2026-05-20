@@ -1,4 +1,4 @@
-import _mysql_connector
+import mysql.connector
 from connector import conectar
 
 from Cadastro.cadastro_contratante import inserir_contratante

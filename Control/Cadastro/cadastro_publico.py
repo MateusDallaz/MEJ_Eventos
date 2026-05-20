@@ -4,6 +4,7 @@ import os
  
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from connector import conectar
+from listagem_fk import pedir_fk
 
 def inserir_publico(conexao):
     cabecalho("CADASTRO DE PÚBLICO ALVO")
