@@ -15,7 +15,7 @@ def inserir_agenda(conexao):
     descricao         = input("Descrição: ").strip()
     id_contratante    = pedir_fk(conexao, "contratante", "Contratante")
     id_artista        = pedir_fk(conexao, "artista",     "Artista")
-    id_local          = pedir_fk(conexao, "localrealizado", "Local", ("id", "nome_local"))
+    id_local          = pedir_fk(conexao, "local_realizado", "Local", ("id", "nome_local"))
  
     sql = """
         INSERT INTO agenda

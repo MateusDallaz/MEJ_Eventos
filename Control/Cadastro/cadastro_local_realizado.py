@@ -17,7 +17,7 @@ def inserir_local(conexao):
     id_contratante       = pedir_fk(conexao, "contratante", "Contratante")
  
     sql = """
-        INSERT INTO localrealizado
+        INSERT INTO local_realizado
             (nome_local, capacidade_total, barracas_vendas,
              endereco, contato_responsavel, id_contratante)
         VALUES (%s, %s, %s, %s, %s, %s)

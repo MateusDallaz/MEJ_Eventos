@@ -7,7 +7,6 @@ _COLUNA_LABEL = {
     "equipe": "nome",
     "marketing": "nome",
     "patrocinadores": "nome_empresa",
-    "localrealizado": "nome_local",
     "local_realizado": "nome_local",
     "despesas": "custo_contratacao",
     "financeiro": "id",
@@ -17,29 +16,6 @@ _COLUNA_LABEL = {
 
 
 def pedir_fk(conexao, tabela, label, campos=None):
-    """
-    Exibe os registros de uma tabela relacionada e solicita ao usuário
-    que escolha um ID (chave estrangeira).
-
-    Parâmetros
-    ----------
-    conexao : mysql.connector.connection
-        Conexão ativa com o banco de dados.
-    tabela  : str
-        Nome da tabela cujos registros serão listados.
-    label   : str
-        Nome amigável exibido ao usuário (ex.: "Artista", "Contratante").
-    campos  : tuple[str, str] | None
-        Par (coluna_id, coluna_exibicao) a consultar na tabela.
-        Se None, usa "id" como chave e busca automaticamente a coluna
-        de exibição pelo mapeamento _COLUNA_LABEL.
-
-    Retorna
-    -------
-    int | None
-        O ID escolhido pelo usuário, ou None caso queira deixar vazio.
-    """
-
     # Define as colunas a consultar
     if campos is not None:
         col_id, col_label = campos
