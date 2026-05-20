@@ -1,0 +1,15 @@
+import mysql.connector
+import sys
+import os
+# Sobe um nível (de Lista → Control)
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from menu import menu
+from connector import conectar
+
+def listagem_localRealizado(conexao):
+    cursor = conexao.cursor()
+    cursor.execute('SELECT nome_local, capacidade_total, endereco FROM local_realizado')
+    resultado = cursor.fetchall()
+    for i in resultado:
+        print(i)

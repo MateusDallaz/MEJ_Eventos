@@ -8,7 +8,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from menu import menu
 from connector import conectar
 
-def inserir_cadastro(conexao):
+def inserir_contratante(conexao):
     nome = input("Nome: ")
     cnpj = input("CNPJ: ")
     contatos = input("Contatos: ")
@@ -25,4 +25,4 @@ def inserir_cadastro(conexao):
     print("Registro inserido com sucesso!")
 
 conexao = conectar()
-inserir_cadastro(conexao)  
+inserir_contratante(conexao)  
