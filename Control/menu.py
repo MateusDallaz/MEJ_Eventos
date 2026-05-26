@@ -24,12 +24,14 @@ from Lista.list_marketing import listagem_marketing
 from Lista.list_patrocinadores import listagem_patrocinadores
 from Lista.list_publico import listagem_publico
 
+from Delete.remove_contratante import remove_contratante
+
 from encerrar_conexao import fechar_conexao
 
 def menu (conexao):
     while True :
         print("\n=== MENU PRINCIPAL ===")
-        print('\n 1 - cadastrar | 2 - listar | 3 - finalizar')
+        print('\n 1 - Cadastrar | 2 - Listar | 3 - Remover | 4 - Finalizar')
         opcao = input("Escolha a opção desejada: ")
 
         if opcao == '1':
@@ -151,6 +153,15 @@ def menu (conexao):
                 print ("Digite uma opção valida")
 
         elif opcao == '3':
+            tabelas_Lista = ["Contratante","Agenda","Artista","Despesas","Equipe","Financeiro","Local Realizado","Marketing","Patrocinadores","Público"]
+            print ("\n=== TABELAS DISPONIVEIS PARA REMOÇÃO ===\n")
+            for i,tabela in enumerate(tabelas_Lista, start=1):
+                print(f'{i} - {tabela}')
+            opcao_remover = input("\nEscolha uma tabela para remover (Digite 11 para sair): ")
+
+            if opcao_remover == '1':
+
+        elif opcao == '4':
             fechar_conexao(conexao)
             break;
         else:
