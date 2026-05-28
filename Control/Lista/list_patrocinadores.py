@@ -8,7 +8,7 @@ from connector import conectar
 
 def listagem_patrocinadores(conexao):
     cursor = conexao.cursor()
-    cursor.execute('SELECT nome_empresa, descricao FROM patrocinadores')
+    cursor.execute('SELECT id, nome_empresa, descricao FROM patrocinadores')
     resultado = cursor.fetchall()
     for i in resultado:
         print(i)

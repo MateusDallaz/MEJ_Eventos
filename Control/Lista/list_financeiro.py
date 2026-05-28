@@ -8,7 +8,7 @@ from connector import conectar
 
 def listagem_financeiro(conexao):
     cursor = conexao.cursor()
-    cursor.execute('SELECT valor_evento, despesa_total, lucro_evento FROM financeiro')
+    cursor.execute('SELECT id, valor_evento, despesa_total, lucro_evento FROM financeiro')
     resultado = cursor.fetchall()
     for i in resultado:
         print(i)

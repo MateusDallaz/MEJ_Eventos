@@ -8,7 +8,7 @@ from connector import conectar
 
 def listagem_contratante(conexao):
     cursor = conexao.cursor()
-    cursor.execute('SELECT nome, endereco, data_evento, contatos FROM contratante')
+    cursor.execute('SELECT id, nome, endereco, data_evento, contatos FROM contratante')
     resultado = cursor.fetchall()
     for i in resultado:
         print(i)

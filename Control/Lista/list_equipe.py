@@ -8,7 +8,7 @@ from connector import conectar
 
 def listagem_equipe(conexao):
     cursor = conexao.cursor()
-    cursor.execute('SELECT nome, funcao, observacao FROM equipe')
+    cursor.execute('SELECT id, nome, funcao, observacao FROM equipe')
     resultado = cursor.fetchall()
     for i in resultado:
         print(i)

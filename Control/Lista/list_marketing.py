@@ -8,7 +8,7 @@ from connector import conectar
 
 def listagem_marketing(conexao):
     cursor = conexao.cursor()
-    cursor.execute('SELECT meio_comunicacao, tipo_midia, alcance FROM marketing')
+    cursor.execute('SELECT id, meio_comunicacao, tipo_midia, alcance FROM marketing')
     resultado = cursor.fetchall()
     for i in resultado:
         print(i)

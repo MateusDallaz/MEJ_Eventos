@@ -8,7 +8,7 @@ from connector import conectar
 
 def listagem_publico(conexao):
     cursor = conexao.cursor()
-    cursor.execute('SELECT publico_alvo, ingresso_vendido, observacao, faixa_etaria FROM publico')
+    cursor.execute('SELECT id, publico_alvo, ingresso_vendido, observacao, faixa_etaria FROM publico')
     resultado = cursor.fetchall()
     for i in resultado:
         print(i)

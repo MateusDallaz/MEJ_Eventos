@@ -8,7 +8,7 @@ from connector import conectar
 
 def listagem_localRealizado(conexao):
     cursor = conexao.cursor()
-    cursor.execute('SELECT nome_local, capacidade_total, endereco FROM local_realizado')
+    cursor.execute('SELECT id, nome_local, capacidade_total, endereco FROM local_realizado')
     resultado = cursor.fetchall()
     for i in resultado:
         print(i)

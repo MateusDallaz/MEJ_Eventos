@@ -6,9 +6,15 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from connector import conectar
 
-from Lista.list_contratante import listagem_contratante
-
 def remove_contratante(conexao):
+    id = int(input('Digite o numero do cadastro que deseja remover: '))
     cursor = conexao.cursor()
-    cursor.execute('DELETE * FROM {contratante} WHERE {id} = {valor}')
+    cursor.execute('DELETE FROM contratante WHERE id = %s', (id,))
+    registro = cursor.fetchone()
+    if not registro:
+        print(f'Cadastro com ID {id} não encontrado.')
+        return
+    
+    cursor.execute('DELETE FROM contratante WHERE id = %s', (id,))
     conexao.commit()
+    print(f'Registro {id} removido com sucesso.')

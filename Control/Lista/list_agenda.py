@@ -8,7 +8,7 @@ from connector import conectar
 
 def listagem_agenda(conexao):
     cursor = conexao.cursor()
-    cursor.execute('SELECT nome_evento, data_evento, descricao FROM agenda')
+    cursor.execute('SELECT id, nome_evento, data_evento, descricao FROM agenda')
     resultado = cursor.fetchall()
     for i in resultado:
         print(i)

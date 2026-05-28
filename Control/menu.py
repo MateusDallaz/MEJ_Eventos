@@ -25,13 +25,30 @@ from Lista.list_patrocinadores import listagem_patrocinadores
 from Lista.list_publico import listagem_publico
 
 from Delete.remove_contratante import remove_contratante
+from Delete.remove_agenda import remove_agenda
+from Delete.remove_marketing import remove_marketing
+from Delete.remove_publico import remove_publico
+from Delete.remove_patrocinadores import remove_patrocinadores
+from Delete.remove_artista import remove_artista
+from Delete.remove_despesas import remove_despesas
+from Delete.remove_equipe import remove_equipe
+from Delete.remove_financeiro import remove_financeiro
+from Delete.remove_localRealizado import remove_localRealizado
+
+from Join.join_contratante_marketing import join_contratante_marketing
+from Join.join_contratante_equipe import join_contratante_equipe
+from Join.join_agenda_artista import join_agendaArtista
+from Join.join_agenda_local import join_agenda_local
+
+
+
 
 from encerrar_conexao import fechar_conexao
 
 def menu (conexao):
     while True :
         print("\n=== MENU PRINCIPAL ===")
-        print('\n 1 - Cadastrar | 2 - Listar | 3 - Remover | 4 - Finalizar')
+        print('\n 1 - Cadastrar | 2 - Listar | 3 - Remover | 4 - Listagens Cruzadas | 5 - Finalizar')
         opcao = input("Escolha a opção desejada: ")
 
         if opcao == '1':
@@ -160,10 +177,94 @@ def menu (conexao):
             opcao_remover = input("\nEscolha uma tabela para remover (Digite 11 para sair): ")
 
             if opcao_remover == '1':
+                print('\n=== REMOÇÃO DE DADOS DE CONTRATANTE ===')
+                listagem_contratante(conexao)
+                remove_contratante(conexao)
+
+            elif opcao_remover == '2':
+                print('\n=== REMOÇÃO DE DADOS DE AGENDA ===')
+                listagem_agenda(conexao)
+                remove_agenda(conexao)
+
+            elif opcao_remover == '3':
+                print('\n=== REMOÇÃO DE DADOS DE ARTISTA ===')
+                listagem_artista(conexao)
+                remove_artista(conexao)
+    
+            elif opcao_remover == '4':
+                print('\n=== REMOÇÃO DE DADOS DE DESPESAS ===')
+                listagem_despesas(conexao)
+                remove_despesas(conexao)
+
+            elif opcao_remover == '5':
+                print('\n=== REMOÇÃO DE DADOS DE EQUIPE ===')
+                listagem_equipe(conexao)
+                remove_equipe(conexao)
+
+            elif opcao_remover == '6':
+                print('\n=== REMOÇÃO DE DADOS DE FINANCEIRO ===')
+                listagem_financeiro(conexao)
+                remove_financeiro(conexao)
+
+            elif opcao_remover == '7':
+                print('\n=== REMOÇÃO DE DADOS DE LOCAL REALIZADO ===')
+                listagem_localRealizado(conexao)
+                remove_localRealizado(conexao)
+
+            elif opcao_remover == '8':
+                print('\n=== REMOÇÃO DE DADOS DE MARKETING ===')
+                listagem_marketing(conexao)
+                remove_marketing(conexao)
+
+            elif opcao_remover == '9':
+                print('\n=== REMOÇÃO DE DADOS DE PATROCINADORES ===')
+                listagem_patrocinadores(conexao)
+                remove_patrocinadores(conexao)
+
+            elif opcao_remover == '10':
+                print('\n=== REMOÇÃO DE DADOS DE PÚBLICO ===')
+                listagem_publico(conexao)
+                remove_publico(conexao)
+
+            elif opcao_remover == '11':
+                print("\n=== Até logo! ===")
+                break;
+
+            else:
+                print ("Digite uma opção valida")
+
 
         elif opcao == '4':
+            listagens_cruzadas = ["Contratante e Marketing","Contratante e Equipe", "Agenda e Artista", "Agenda e Local Realizado"]
+            print ("\n=== LISTAGENS CRUZADAS DISPONIVEIS ===\n")
+            for i,listagem in enumerate(listagens_cruzadas, start=1):
+                print(f'{i} - {listagem}')
+            opcao_listagem_cruzada = input("\nEscolha uma listagem cruzada para exibir (Digite 5 para sair): ")
+
+            if opcao_listagem_cruzada == '1':
+                print("\n=== LISTAGEM CRUZADA DE CONTRATANTE E MARKETING ===")
+                join_contratante_marketing(conexao)
+
+            elif opcao_listagem_cruzada == '2':
+                print("\n=== LISTAGEM CRUZADA DE CONTRATANTE E EQUIPE ===")
+                join_contratante_equipe(conexao)
+
+            elif opcao_listagem_cruzada == '3':
+                print("\n=== LISTAGEM CRUZADA DE AGENDA E ARTISTA ===")
+                join_agendaArtista(conexao)
+
+            elif opcao_listagem_cruzada == '4':
+                print("\n=== LISTAGEM CRUZADA DE AGENDA E LOCAL REALIZADO ===")
+                join_agenda_local(conexao)
+
+            elif opcao_listagem_cruzada == '5':
+                print("\n=== Até logo! ===")
+                break;
+            else:
+                print ("Digite uma opção valida")
+
+        elif opcao == '5':
             fechar_conexao(conexao)
             break;
         else:
             print ("Opção inválida, tente novamente.")
-

@@ -8,7 +8,7 @@ from connector import conectar
 
 def listagem_artista(conexao):
     cursor = conexao.cursor()
-    cursor.execute('SELECT nome, contatos, descricao FROM artista')
+    cursor.execute('SELECT id, nome, contatos, descricao FROM artista')
     resultado = cursor.fetchall()
     for i in resultado:
         print(i)
