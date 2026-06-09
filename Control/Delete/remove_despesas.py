@@ -9,13 +9,14 @@ from connector import conectar
 def remove_despesas(conexao):
     id = int(input('Digite o numero do cadastro que deseja remover: '))
     cursor = conexao.cursor()
-    cursor.execute('DELETE FROM despesas WHERE id = %s', (id,))
+
+    cursor.execute('SELECT * FROM despesas WHERE id = %s', (id,))
     registro = cursor.fetchone()
+
     if not registro:
         print(f'Cadastro com ID {id} não encontrado.')
         return
-    
+
     cursor.execute('DELETE FROM despesas WHERE id = %s', (id,))
     conexao.commit()
     print(f'Registro {id} removido com sucesso.')
-

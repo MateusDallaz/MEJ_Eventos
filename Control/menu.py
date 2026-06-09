@@ -40,6 +40,17 @@ from Join.join_contratante_equipe import join_contratante_equipe
 from Join.join_agenda_artista import join_agendaArtista
 from Join.join_agenda_local import join_agenda_local
 
+from uptade.uptade_equipe import update_equipe
+from uptade.uptade_agenda import update_agenda
+from uptade.uptade_publico import update_publico
+from uptade.uptade_financeiro import update_financeiro
+from uptade.uptade_localrealizado import update_localRealizado
+from uptade.uptade_marketing import update_marketing
+from uptade.uptade_patrocinadores import update_patrocinadores
+from uptade.uptade_contratante import update_contratante
+from uptade.uptade_artista import update_artista
+from uptade.uptade_despesas import update_despesas
+
 
 
 
@@ -48,7 +59,7 @@ from encerrar_conexao import fechar_conexao
 def menu (conexao):
     while True :
         print("\n=== MENU PRINCIPAL ===")
-        print('\n 1 - Cadastrar | 2 - Listar | 3 - Remover | 4 - Listagens Cruzadas | 5 - Finalizar')
+        print('\n 1 - Cadastrar | 2 - Listar | 3 - Remover | 4 - Listagens Cruzadas | 5 - atualizar | 6 - Sair')
         opcao = input("Escolha a opção desejada: ")
 
         if opcao == '1':
@@ -264,6 +275,67 @@ def menu (conexao):
                 print ("Digite uma opção valida")
 
         elif opcao == '5':
+            tabelas_Lista = ["Contratante","Agenda","Artista","Despesas","Equipe","Financeiro","Local Realizado","Marketing","Patrocinadores","Público"]
+            print ("\n=== TABELAS DISPONIVEIS PARA ATUALIZAÇÃO ===\n")
+            for i,tabela in enumerate(tabelas_Lista, start=1):
+                print(f'{i} - {tabela}')
+            opcao_atualizar = input("\nEscolha uma tabela para atualizar (Digite 11 para sair): ")
+
+            if opcao_atualizar == '1':
+                print('\n=== ATUALIZAÇÃO DE DADOS DE CONTRATANTE ===')
+                listagem_contratante(conexao)
+                update_contratante(conexao)
+
+            elif opcao_atualizar == '2':
+                print('\n=== ATUALIZAÇÃO DE DADOS DE AGENDA ===')
+                listagem_agenda(conexao)
+                update_agenda(conexao)
+
+            elif opcao_atualizar == '3':
+                print('\n=== ATUALIZAÇÃO DE DADOS DE ARTISTA ===')
+                listagem_artista(conexao)
+                update_artista(conexao)
+    
+            elif opcao_atualizar == '4':
+                print('\n=== ATUALIZAÇÃO DE DADOS DE DESPESAS ===')
+                listagem_despesas(conexao)
+                update_despesas(conexao)
+
+            elif opcao_atualizar == '5':
+                print('\n=== ATUALIZAÇÃO DE DADOS DE EQUIPE ===')
+                listagem_equipe(conexao)
+                update_equipe(conexao)
+
+            elif opcao_atualizar == '6':
+                print('\n=== ATUALIZAÇÃO DE DADOS DE FINANCEIRO ===')
+                listagem_financeiro(conexao)
+                update_financeiro(conexao)
+
+            elif opcao_atualizar == '7':
+                print('\n=== ATUALIZAÇÃO DE DADOS DE LOCAL REALIZADO ===')
+                listagem_localRealizado(conexao)
+                update_localRealizado(conexao)
+
+            elif opcao_atualizar == '8':
+                print('\n=== ATUALIZAÇÃO DE DADOS DE MARKETING ===')
+                listagem_marketing(conexao)
+                update_marketing(conexao)
+
+            elif opcao_atualizar == '9':
+                print('\n=== ATUALIZAÇÃO DE DADOS DE PATROCINADORES ===')
+                listagem_patrocinadores(conexao)
+                update_patrocinadores(conexao)
+
+            elif opcao_atualizar == '10':
+                print('\n=== ATUALIZAÇÃO DE DADOS DE PÚBLICO ===')
+                listagem_publico(conexao)
+                update_publico(conexao)
+
+            else:
+                print ("Digite uma opção valida")
+                return
+
+        elif opcao == '6':
             fechar_conexao(conexao)
             break;
         else:

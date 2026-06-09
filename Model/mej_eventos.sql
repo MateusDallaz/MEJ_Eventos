@@ -462,3 +462,16 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+create view view_agenda_artista as 
+select a.nome, a.contatos, a.preferencias, a.descricao as artista, agen.data_evento, agen.nome_evento from agenda agen inner join artista a on agen.id_artista = a.id;
+
+create view view_agenda_local as
+select l.nome_local, l.capacidade_total,l.endereco as local_realizado, a.data_evento, a.nome_evento, a.descricao FROM agenda a INNER JOIN local_realizado l ON a.id_local = l.id;
+
+create view view_contratante_equipe as
+select c.nome, c.contatos, c.descricao as contratante, e.nome,e.funcao,e.contato from equipe e left join contratante c on e.id_contratante = c.id;
+
+create view view_contratante_marketing as
+select c.nome, c.contatos, c.descricao as contratante, m.meio_comunicacao, m.tipo_midia, m.custo from marketing m left join contratante c on m.id_contratante = c.id;

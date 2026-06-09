@@ -9,7 +9,7 @@ from connector import conectar
 def remove_agenda(conexao):
     id = int(input('Digite o numero do cadastro que deseja remover: '))
     cursor = conexao.cursor()
-    cursor.execute('SELECT id FROM agenda WHERE id = %s', (id,))
+    cursor.execute('DELETE FROM agenda WHERE id = %s', (id,))
     registro = cursor.fetchone()
     if not registro:
         print(f'Cadastro com ID {id} não encontrado.')
